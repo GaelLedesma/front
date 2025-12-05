@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { categoryImages } from "../constants/categoryImages";
 import Header from "./Header";
 import BannerPromo from "./BannerPromo";
 import FooterNav from "./FooterNav";
@@ -9,7 +8,6 @@ import abarrotes from "../assets/categorias/abarrotes.png";
 import bebidas from "../assets/categorias/bebidas.png";
 import snacks from "../assets/categorias/snacks.png";
 import lacteos from "../assets/categorias/lacteos.png";
-import abarrotes2 from "../assets/categorias/abarrotes.png";
 import panaderia from "../assets/categorias/panaderia.png";
 import higiene from "../assets/categorias/higiene_personal.png";
 import limpieza from "../assets/categorias/limpieza.png";
@@ -18,7 +16,7 @@ import farmacia from "../assets/categorias/farmacia.png";
 import electro from "../assets/categorias/electro.png";
 import electronica from "../assets/categorias/electronica.png";
 
-export const categoryImages: Record<number, string> = {
+const categoryImages: Record<number, string> = {
   1: electro, // Electrodomésticos
   2: bebidas, // Bebidas
   3: snacks, // Snacks
