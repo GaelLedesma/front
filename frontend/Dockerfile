@@ -1,18 +1,19 @@
-# Etapa 1 — Construcción con Node + pnpm
+# Etapa 1 — Construcción con Node + npm
 FROM node:20 AS build
 
 WORKDIR /app
 
-# Instalar pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# Copiar archivos de dependencias
+COPY package.json package-lock.json ./
 
-COPY package.json pnpm-lock.yaml ./
+# Instalar dependencias con npm
+RUN npm install
 
-RUN pnpm install
-
+# Copiar el resto del proyecto
 COPY . .
 
-RUN pnpm build
+# Construir el proyecto
+RUN npm run build
 
 # Etapa 2 — Servir estático con nginx
 FROM nginx:stable
