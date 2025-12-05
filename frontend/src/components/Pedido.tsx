@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../config";
 
 interface Pedido {
   pedido_id: number;
@@ -20,7 +19,9 @@ export default function Pedido() {
   useEffect(() => {
     const fetchPedidos = async () => {
       try {
-        const res = await fetch(`${BASE_URL}pedidos`);
+        const res = await fetch(
+          `https://back-production-b2e7.up.railway.app/pedidos/`
+        );
         const data = await res.json();
 
         setPedidos(data);

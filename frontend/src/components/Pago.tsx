@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ConfirmPurchase from "./ConfirmPurchase";
-import { BASE_URL } from "../config";
 
 type PaymentMethod = "efectivo" | "tarjeta" | "qr" | "monedero";
 
@@ -60,11 +59,14 @@ const Pago = () => {
     };
 
     try {
-      const res = await fetch(`${BASE_URL}pedidos`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(pedidoPayload),
-      });
+      const res = await fetch(
+        `https://back-production-b2e7.up.railway.app/pedidos/`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(pedidoPayload),
+        }
+      );
 
       const data = await res.json();
 
