@@ -2,23 +2,20 @@
 FROM node:20 AS build
 WORKDIR /app
 
-# Copiar package.json y lockfile
-COPY package.json package-lock.json ./
-RUN npm install --production=false
+# Copiar solo package.json (porque NO tienes package-lock.json)
+COPY package.json ./
+RUN npm install
 
-# Copiar el resto del código
+# Copiar todo el frontend
 COPY . .
 
-# Construir el proyecto
+# Construir Vite
 RUN npm run build
 
 # --- RUN STAGE ---
 FROM nginx:alpine
 
-# Copiar archivos generados por Vite
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Puerto (Railway lo ignora pero no pasa nada)
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]
