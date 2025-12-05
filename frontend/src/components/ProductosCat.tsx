@@ -35,7 +35,9 @@ export default function ProductosCat() {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/${id}`);
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/productos/categoria/${id}`
+        );
         const data = await res.json();
         setProductos(data);
       } catch (error) {
