@@ -19,8 +19,8 @@ export default function Pedido() {
   useEffect(() => {
     const fetchPedidos = async () => {
       try {
-        const base = import.meta.env.VITE_API_URL;
-        const res = await fetch(`${base}pedidos`);
+        const base = import.meta.env.VITE_API_URL.replace(/\/$/, "");
+        const res = await fetch(`${base}/pedidos`);
         const data = await res.json();
 
         setPedidos(data);
