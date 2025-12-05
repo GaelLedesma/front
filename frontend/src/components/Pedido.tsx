@@ -23,7 +23,7 @@ export default function Pedido() {
           /^http:\/\//i,
           "https://"
         );
-        const res = await fetch(`${base}/pedidos`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}pedidos`);
         const data = await res.json();
 
         setPedidos(data);
