@@ -5,7 +5,32 @@ import { categoryImages } from "../constants/categoryImages";
 import Header from "./Header";
 import BannerPromo from "./BannerPromo";
 import FooterNav from "./FooterNav";
+import abarrotes from "../assets/categorias/abarrotes.png";
+import bebidas from "../assets/categorias/bebidas.png";
+import snacks from "../assets/categorias/snacks.png";
+import lacteos from "../assets/categorias/lacteos.png";
+import abarrotes2 from "../assets/categorias/abarrotes.png";
+import panaderia from "../assets/categorias/panaderia.png";
+import higiene from "../assets/categorias/higiene_personal.png";
+import limpieza from "../assets/categorias/limpieza.png";
+import congelados from "../assets/categorias/congelados.png";
+import farmacia from "../assets/categorias/farmacia.png";
+import electro from "../assets/categorias/electro.png";
+import electronica from "../assets/categorias/electronica.png";
 
+export const categoryImages: Record<number, string> = {
+  1: electro, // Electrodomésticos
+  2: bebidas, // Bebidas
+  3: snacks, // Snacks
+  4: lacteos, // Lácteos
+  5: abarrotes, // Abarrotes
+  6: panaderia, // Panadería
+  7: higiene, // Higiene Personal
+  8: limpieza, // Limpieza
+  9: congelados, // Congelados
+  10: farmacia, // Farmacia
+  11: electronica, // Electrónica
+};
 // const stores = [
 //   {
 //     id: 1,
@@ -70,10 +95,7 @@ export const Menu: React.FC = () => {
                 >
                   <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-white shadow-sm w-full max-w-[5.5rem]">
                     <img
-                      src={
-                        categoryImages[cat.id] ??
-                        "https://via.placeholder.com/80"
-                      }
+                      src={categoryImages[cat.categoria_id]}
                       alt={cat.nombre}
                       className="h-14 w-14 object-contain"
                     />
