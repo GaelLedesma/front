@@ -36,7 +36,7 @@ export default function ProductosCat() {
     const fetchProductos = async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/productos/categoria/${id}`
+          `${import.meta.env.VITE_API_URL}productos/categoria/${id}`
         );
         const data = await res.json();
         setProductos(data);
