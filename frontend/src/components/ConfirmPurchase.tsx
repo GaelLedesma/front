@@ -18,7 +18,7 @@ const ConfirmPurchase = () => {
   }, []);
 
   const handleGoToOrders = () => {
-    navigate(`/pedido/${orderId}`);
+    navigate(`/pedidos`);
   };
 
   return (
